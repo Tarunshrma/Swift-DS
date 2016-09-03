@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C52F81CF3F58F007B02BB /* StackTest.swift */; };
+		561C52FA1CF3F5DC007B02BB /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C811CE76EBD001E364A /* Stack.swift */; };
 		56D21C611CE76E49001E364A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C601CE76E48001E364A /* AppDelegate.swift */; };
 		56D21C631CE76E49001E364A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C621CE76E49001E364A /* ViewController.swift */; };
 		56D21C661CE76E49001E364A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D21C641CE76E49001E364A /* Main.storyboard */; };
 		56D21C681CE76E4A001E364A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56D21C671CE76E4A001E364A /* Assets.xcassets */; };
 		56D21C6B1CE76E4A001E364A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D21C691CE76E4A001E364A /* LaunchScreen.storyboard */; };
 		56D21C761CE76E4C001E364A /* DataStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C751CE76E4C001E364A /* DataStructureTests.swift */; };
+		56D21C821CE76EBD001E364A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C811CE76EBD001E364A /* Stack.swift */; };
+		56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C841CE77BF5001E364A /* StackImpl.swift */; };
+		56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DED78A1D7AB20A0048D272 /* Tree.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		561C52F81CF3F58F007B02BB /* StackTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTest.swift; sourceTree = "<group>"; };
 		56D21C5D1CE76E48001E364A /* DataStructure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStructure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D21C601CE76E48001E364A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56D21C621CE76E49001E364A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +42,9 @@
 		56D21C711CE76E4C001E364A /* DataStructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataStructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D21C751CE76E4C001E364A /* DataStructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureTests.swift; sourceTree = "<group>"; };
 		56D21C771CE76E4C001E364A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56D21C811CE76EBD001E364A /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = DataStructure/Stack.swift; sourceTree = "<group>"; };
+		56D21C841CE77BF5001E364A /* StackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackImpl.swift; path = Implementation/StackImpl.swift; sourceTree = "<group>"; };
+		56DED78A1D7AB20A0048D272 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = DataStructure/Tree.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,8 @@
 		56D21C5F1CE76E48001E364A /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				56D21C831CE77BCE001E364A /* DSImplementation */,
+				56D21C801CE76E7B001E364A /* DataStructure */,
 				56D21C601CE76E48001E364A /* AppDelegate.swift */,
 				56D21C621CE76E49001E364A /* ViewController.swift */,
 				56D21C641CE76E49001E364A /* Main.storyboard */,
@@ -92,8 +103,26 @@
 			children = (
 				56D21C751CE76E4C001E364A /* DataStructureTests.swift */,
 				56D21C771CE76E4C001E364A /* Info.plist */,
+				561C52F81CF3F58F007B02BB /* StackTest.swift */,
 			);
 			path = DataStructureTests;
+			sourceTree = "<group>";
+		};
+		56D21C801CE76E7B001E364A /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				56DED78A1D7AB20A0048D272 /* Tree.swift */,
+				56D21C811CE76EBD001E364A /* Stack.swift */,
+			);
+			name = DataStructure;
+			sourceTree = "<group>";
+		};
+		56D21C831CE77BCE001E364A /* DSImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				56D21C841CE77BF5001E364A /* StackImpl.swift */,
+			);
+			name = DSImplementation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */,
 				56D21C631CE76E49001E364A /* ViewController.swift in Sources */,
+				56D21C821CE76EBD001E364A /* Stack.swift in Sources */,
+				56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */,
 				56D21C611CE76E49001E364A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +238,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */,
+				561C52FA1CF3F5DC007B02BB /* Stack.swift in Sources */,
 				56D21C761CE76E4C001E364A /* DataStructureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +420,7 @@
 				56D21C7C1CE76E4C001E364A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56D21C7D1CE76E4C001E364A /* Build configuration list for PBXNativeTarget "DataStructureTests" */ = {
 			isa = XCConfigurationList;
@@ -394,6 +429,7 @@
 				56D21C7F1CE76E4C001E364A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
