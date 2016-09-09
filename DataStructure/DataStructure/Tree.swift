@@ -32,6 +32,20 @@ extension Tree{
     private func resetCurrentNodePointer(){
         self.currentNode = self.root;
     }
+    
+    private func getHeightForRootNode(node:Node?)->Int{
+        
+        guard let aNode = node else{
+            return -1
+        }
+        
+        let leftSubTreeHeight = getHeightForRootNode(aNode.left)
+        let rightSubTreeHeight = getHeightForRootNode(aNode.right)
+        
+        return max(leftSubTreeHeight,rightSubTreeHeight) + 1
+    }
+    
+    
 }
 
 class Tree{
@@ -141,10 +155,14 @@ class Tree{
         return numberFound;
     }
     
-//    //Calculate the height of tree
-//    func height()->Int{
-//        
-//    }
+    //Calculate the height of tree
+    func height()->Int{
+        guard self.isTreeEmpty() else{ //If tree is empty simply return height as 0
+            return 0
+        }
+        self.currentNode = self.root;
+        return self.getHeightForRootNode(self.currentNode!);
+    }
     
     func levelOrderTraversal(){
         
