@@ -18,6 +18,10 @@ class Node{
     init(){
         self.data = kDefaultGarbageValue;
     }
+    
+    init(withData rootData:Int){
+        self.data = rootData;
+    }
 }
 
 //Private helper methods
@@ -55,7 +59,7 @@ class Tree{
     private var currentNode:Node?
     
     init(){
-        self.root = Node();
+        self.root = nil;
         self.currentNode = root;
     }
     
@@ -73,7 +77,9 @@ class Tree{
         var node:Node? = self.currentNode;
         
         if (self.isTreeEmpty()){
-            self.putData(inNode: node!, data: _data);
+            node  = Node(withData:_data)
+            self.root = node
+            self.currentNode = self.root
         }else if(node == nil){
             //create a node and insert data
             node  = Node();
@@ -157,8 +163,8 @@ class Tree{
     
     //Calculate the height of tree
     func height()->Int{
-        guard self.isTreeEmpty() else{ //If tree is empty simply return height as 0
-            return 0
+        guard !self.isTreeEmpty() else{ //If tree is empty simply return height as 0
+            return -1
         }
         self.currentNode = self.root;
         return self.getHeightForRootNode(self.currentNode!);

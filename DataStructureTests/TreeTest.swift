@@ -7,7 +7,16 @@
 //
 
 import XCTest
+@testable import DataStructure
 
+//helper methods for test suites
+extension TreeTest{
+    func createBinaryTreeWithElements(elements:[Int]){
+        for element in elements{
+            self.tree?.insertData(element)
+        }
+    }
+}
 
 class TreeTest: XCTestCase {
     
@@ -15,16 +24,6 @@ class TreeTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        
         self.tree = Tree()
     }
     
@@ -36,8 +35,8 @@ class TreeTest: XCTestCase {
     
     //Test the tree initialization without parametrized constructor
     func testTreeInitializationWithoutConstructor(){
-        XCTAssertNil(self.tree,"Tree no initialized...")
-        XCTAssertNotNil(self.tree?.root,"Tree should be empty i.e. root should be nil on default initlization without parameter")
+        XCTAssertNotNil(self.tree,"Tree not initialized...")
+        XCTAssertNil(self.tree?.root,"Tree should be empty i.e. root should be nil on default initlization without parameter")
     }
     
     //Test the tree initialization without parametrized constructor
@@ -48,14 +47,25 @@ class TreeTest: XCTestCase {
         //WHEN
         
         //THEN
-        XCTAssertNil(objTree,"Tree no initialized...")
-        XCTAssertNil(objTree.root,"Tree root should not be nil")
+        XCTAssertNotNil(objTree,"Tree no initialized...")
+        XCTAssertNotNil(objTree.root,"Tree root should not be nil")
         XCTAssert((objTree.root?.data == rootNodeData),"expected value for root node should be \(rootNodeData)")
     }
-
+    
+    func testHeightOfTree(){
+        //GIVEN
+        self.createBinaryTreeWithElements([15,10,12,8,20,17,25])
+        //WHEN
+        XCTAssertNotNil(self.tree,"Tree no initialized...")
+        let heightOfTree:Int = self.tree!.height()
+        
+        //THEN
+        XCTAssert((heightOfTree == 2),"Expected tree height should be 2, currently is is \(heightOfTree)")
+    }
+    
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
+    
 }

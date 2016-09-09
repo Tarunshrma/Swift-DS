@@ -18,8 +18,7 @@
 		56D21C821CE76EBD001E364A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C811CE76EBD001E364A /* Stack.swift */; };
 		56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C841CE77BF5001E364A /* StackImpl.swift */; };
 		56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DED78A1D7AB20A0048D272 /* Tree.swift */; };
-		F87996BC1D82C18300C26679 /* TreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87996BB1D82C18300C26679 /* TreeTest.swift */; };
-		F87996BD1D82C27A00C26679 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DED78A1D7AB20A0048D272 /* Tree.swift */; };
+		F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87996BE1D82D2C700C26679 /* TreeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,7 @@
 		56D21C811CE76EBD001E364A /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = DataStructure/Stack.swift; sourceTree = "<group>"; };
 		56D21C841CE77BF5001E364A /* StackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackImpl.swift; path = Implementation/StackImpl.swift; sourceTree = "<group>"; };
 		56DED78A1D7AB20A0048D272 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = DataStructure/Tree.swift; sourceTree = "<group>"; };
-		F87996BB1D82C18300C26679 /* TreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTest.swift; sourceTree = "<group>"; };
+		F87996BE1D82D2C700C26679 /* TreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +106,7 @@
 				56D21C751CE76E4C001E364A /* DataStructureTests.swift */,
 				56D21C771CE76E4C001E364A /* Info.plist */,
 				561C52F81CF3F58F007B02BB /* StackTest.swift */,
-				F87996BB1D82C18300C26679 /* TreeTest.swift */,
+				F87996BE1D82D2C700C26679 /* TreeTest.swift */,
 			);
 			path = DataStructureTests;
 			sourceTree = "<group>";
@@ -242,9 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F87996BD1D82C27A00C26679 /* Tree.swift in Sources */,
 				561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */,
-				F87996BC1D82C18300C26679 /* TreeTest.swift in Sources */,
+				F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */,
 				561C52FA1CF3F5DC007B02BB /* Stack.swift in Sources */,
 				56D21C761CE76E4C001E364A /* DataStructureTests.swift in Sources */,
 			);
