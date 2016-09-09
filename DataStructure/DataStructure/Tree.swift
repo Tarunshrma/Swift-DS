@@ -49,6 +49,12 @@ extension Tree{
         return max(leftSubTreeHeight,rightSubTreeHeight) + 1
     }
     
+    private func createBinaryTreeWithElements(elements:[Int]){
+        for element in elements{
+            self.insertData(element)
+        }
+    }
+    
     
 }
 
@@ -64,13 +70,19 @@ class Tree{
     }
     
     //Initialize the root node with data
-    init(rootNode:Int?){
+    init(withRootNode rootNode:Int?){
         self.root = Node();
         if let data = rootNode{
             self.putData(inNode: self.root, data: data);
         }
         
         self.currentNode = root;
+    }
+    
+    //Initilized tree with array of elements
+    init(withElements elements:[Int]?){
+        precondition((elements?.count > 0), "Please provide valid list of elements to be inserted into tree")
+        self.createBinaryTreeWithElements(elements!)
     }
     
     func insertData(_data:Int) -> Node {
