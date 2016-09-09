@@ -43,13 +43,26 @@ class TreeTest: XCTestCase {
     func testTreeInitializationWithConstructor(){
         //GIVEN
         let rootNodeData = 15 //Initial root node data
-        let objTree:Tree = Tree(rootNode: rootNodeData) //initialized tree with root node
+        let objTree:Tree = Tree(withRootNode: rootNodeData) //initialized tree with root node
         //WHEN
         
         //THEN
         XCTAssertNotNil(objTree,"Tree no initialized...")
         XCTAssertNotNil(objTree.root,"Tree root should not be nil")
         XCTAssert((objTree.root?.data == rootNodeData),"expected value for root node should be \(rootNodeData)")
+    }
+    
+    //Test the tree initialization with array of elemtns
+    func testTreeInitializationWithArrayOfElements(){
+        //GIVEN
+        let objTree = Tree(withElements: [15,10,12,8,20,17,25])
+        
+        //WHEN
+        XCTAssertNotNil(objTree,"Tree no initialized...")
+        let heightOfTree:Int = objTree.height()
+        
+        //THEN
+        XCTAssert((heightOfTree == 2),"Expected tree height should be 2, currently is is \(heightOfTree)")
     }
     
     func testHeightOfTree(){
@@ -60,7 +73,19 @@ class TreeTest: XCTestCase {
         let heightOfTree:Int = self.tree!.height()
         
         //THEN
-        XCTAssert((heightOfTree == 2),"Expected tree height should be 2, currently is is \(heightOfTree)")
+        XCTAssert((heightOfTree == 2),"Expected tree height should be 2, currently it is \(heightOfTree)")
+    }
+    
+    func testHeightOfTreeAfterNewInsertion(){
+        //GIVEN
+        let objTree = Tree(withElements: [15,10,12,8,20,17,25]) //tree with the height of 2
+        let newElement = 14
+        //WHEN
+        objTree.insertData(newElement) // on insertion of new element height should be updated to 3
+        let heightOfTree:Int = objTree.height()
+        
+        //THEN
+         XCTAssert((heightOfTree == 3),"Updated tree height should be 3, currently it is \(heightOfTree)")
     }
     
     func testExample() {
