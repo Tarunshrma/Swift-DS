@@ -33,7 +33,7 @@ class Stack  {
     
     func push(object:AnyObject) throws{
         //Check if stack overflow exception occured else just push the element at top position
-        if (top == (100-1)){
+        if (top == (defaultCapacity-1)){
             throw StackException.StackOverFlow
         }
 

@@ -142,9 +142,9 @@ class Tree{
     }
     
 //    //Calculate the height of tree
-//    func height()->Int{
-//        
-//    }
+    func height()->Int{
+        
+    }
     
     func levelOrderTraversal(){
         
