@@ -18,6 +18,10 @@ class Node{
     init(){
         self.data = kDefaultGarbageValue;
     }
+    
+    init(withData rootData:Int){
+        self.data = rootData;
+    }
 }
 
 //Private helper methods
@@ -32,6 +36,50 @@ extension Tree{
     private func resetCurrentNodePointer(){
         self.currentNode = self.root;
     }
+    
+    private func getHeightForRootNode(node:Node?)->Int{
+        
+        guard let aNode = node else{
+            return -1
+        }
+        
+        let leftSubTreeHeight = getHeightForRootNode(aNode.left)
+        let rightSubTreeHeight = getHeightForRootNode(aNode.right)
+        
+        return max(leftSubTreeHeight,rightSubTreeHeight) + 1
+    }
+    
+    private func createBinaryTreeWithElements(elements:[Int]){
+        for element in elements{
+            self.insertData(element)
+        }
+    }
+    
+    // MARK: Utility methods for checking is binary search tree
+    private func isBST(node:Node?,minimum min:Int,maximum max:Int)->Bool{
+        guard let root  = node else{ //An empty tree is valid binary search tree
+            return true
+        }
+        
+        if isNodeInValidRange(root, minimum: min, maximum: max) &&
+                isBST(root.left,minimum:min, maximum:root.data) &&
+                isBST (root.right,minimum:(root.data+1), maximum:max){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    private func isNodeInValidRange(node:Node,minimum min:Int,maximum max:Int)->Bool{
+        var isNodeInValidRange:Bool = false
+        if (node.data>=min && node.data<max){
+            isNodeInValidRange = true
+        }
+        return isNodeInValidRange
+    }
+    
+    
 }
 
 class Tree{
@@ -41,12 +89,12 @@ class Tree{
     private var currentNode:Node?
     
     init(){
-        self.root = Node();
+        self.root = nil;
         self.currentNode = root;
     }
     
     //Initialize the root node with data
-    init(rootNode:Int?){
+    init(withRootNode rootNode:Int?){
         self.root = Node();
         if let data = rootNode{
             self.putData(inNode: self.root, data: data);
@@ -55,11 +103,19 @@ class Tree{
         self.currentNode = root;
     }
     
+    //Initilized tree with array of elements
+    init(withElements elements:[Int]?){
+        precondition((elements?.count > 0), "Please provide valid list of elements to be inserted into tree")
+        self.createBinaryTreeWithElements(elements!)
+    }
+    
     func insertData(_data:Int) -> Node {
         var node:Node? = self.currentNode;
         
         if (self.isTreeEmpty()){
-            self.putData(inNode: node!, data: _data);
+            node  = Node(withData:_data)
+            self.root = node
+            self.currentNode = self.root
         }else if(node == nil){
             //create a node and insert data
             node  = Node();
@@ -141,15 +197,24 @@ class Tree{
         return numberFound;
     }
     
-//    //Calculate the height of tree
+    //Calculate the height of tree
     func height()->Int{
-        
+        guard !self.isTreeEmpty() else{ //If tree is empty simply return height as 0
+            return -1
+        }
+        self.currentNode = self.root;
+        return self.getHeightForRootNode(self.currentNode!);
     }
     
     func levelOrderTraversal(){
         
     }
     
+    //Method to check if tree is binary search tree
+    func isBinarySearchTree(node:Node?)->Bool{
+        precondition(self.isTreeEmpty() == false, "Tree is empty!")
+        return self.isBST(node!, minimum:Int(INT8_MIN) , maximum: Int(INT8_MAX))
+    }
     
 }
 
