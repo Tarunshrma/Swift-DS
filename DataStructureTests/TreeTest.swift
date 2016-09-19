@@ -88,9 +88,35 @@ class TreeTest: XCTestCase {
          XCTAssert((heightOfTree == 3),"Updated tree height should be 3, currently it is \(heightOfTree)")
     }
     
+    func testInOrderTraversal(){
+        let objTree = Tree(withElements: [15,10,12,8,20,17,25]) //tree with the height of 2
+        objTree.InOrderTraversal(objTree.root)
+    }
+
+    func testPreOrderTraversal(){
+        let objTree = Tree(withElements: [15,10,12,8,20,17,25]) //tree with the height of 2
+        objTree.PreOrderTraversal(objTree.root)
+    }
+    
+    func testPostOrderTraversal(){
+        let objTree = Tree(withElements: [15,10,12,8,20,17,25]) //tree with the height of 2
+        objTree.PostOrderTraversal(objTree.root)
+    }
+    
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testIsBinarySearchTree(){
+        //GIVEN : A tree object with some elements
+        let objTree = Tree(withElements: [15,10,12,8,20,17,25])
+        
+        //WHEN
+        let isBST = objTree.isBinarySearchTree(objTree.root)
+        
+        //THEN: expectation is passed tree should be binary search tree(as we are creating BST)
+        XCTAssert(isBST, "Expected tree is binary search tree");
     }
     
 }

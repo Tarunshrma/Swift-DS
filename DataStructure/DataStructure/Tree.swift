@@ -55,6 +55,30 @@ extension Tree{
         }
     }
     
+    // MARK: Utility methods for checking is binary search tree
+    private func isBST(node:Node?,minimum min:Int,maximum max:Int)->Bool{
+        guard let root  = node else{ //An empty tree is valid binary search tree
+            return true
+        }
+        
+        if isNodeInValidRange(root, minimum: min, maximum: max) &&
+                isBST(root.left,minimum:min, maximum:root.data) &&
+                isBST (root.right,minimum:(root.data+1), maximum:max){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    private func isNodeInValidRange(node:Node,minimum min:Int,maximum max:Int)->Bool{
+        var isNodeInValidRange:Bool = false
+        if (node.data>=min && node.data<max){
+            isNodeInValidRange = true
+        }
+        return isNodeInValidRange
+    }
+    
     
 }
 
@@ -186,6 +210,11 @@ class Tree{
         
     }
     
+    //Method to check if tree is binary search tree
+    func isBinarySearchTree(node:Node?)->Bool{
+        precondition(self.isTreeEmpty() == false, "Tree is empty!")
+        return self.isBST(node!, minimum:Int(INT8_MIN) , maximum: Int(INT8_MAX))
+    }
     
 }
 
