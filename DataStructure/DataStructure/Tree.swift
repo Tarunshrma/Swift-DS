@@ -216,5 +216,9 @@ class Tree{
         return self.isBST(node!, minimum:Int(INT8_MIN) , maximum: Int(INT8_MAX))
     }
     
+    //Delete node with specified data from tree
+    func remove(data:Int)->Bool{
+        return false
+    }
 }
 
