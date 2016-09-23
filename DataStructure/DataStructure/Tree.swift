@@ -80,6 +80,47 @@ extension Tree{
     }
     
     
+    private func removeNode(rootNode:Node?, data:Int) ->Node?{
+        
+        guard let node = rootNode else{
+            return nil
+        }
+        //If data in rootNode is less then data to be deleted
+        //Go to left subtree
+        if (data<node.data){
+            node.left = removeNode(node.left, data: data)
+        }else if (data>node.data){
+            //If data in rootNode is greater then data to be deleted
+            //Go to right subtree
+            node.right = removeNode(node.right, data: data)
+        }else {
+            var nodeToBeDeleted:Node?
+            //We got the number to be deleted
+            if (node.left == nil && node.right == nil){
+                //If node is leaf node i.e. no child node is there
+                //Simple delete it and return nil
+                node = nil;
+                
+            }else if (node.left == nil){
+                //Only one child is nil i.e. left one
+                node.data = (node.right?.data)!
+                node.right = removeNode(node.right, data: (node.right?.data)!)
+            }else if (node.right == nil){
+                //Only one child is nil i.e. left one
+                node.data = (node.left?.data)!
+                node.left = removeNode(node.left, data: (node.left?.data)!)
+            }else{
+                //Case when node to be deleted has both left and right child
+                //Fine the minimum from right subtree or maximum from left subtree
+                nodeToBeDeleted = self.findMin(node.right)
+                node.data = (nodeToBeDeleted?.data)!
+                node.right = removeNode(node.right, data: (nodeToBeDeleted?.data)!)
+            }
+            
+            return nodeToBeDeleted
+        }
+    }
+    
 }
 
 class Tree{
@@ -146,16 +187,13 @@ class Tree{
     }
     
     //Find the minimum element in tree
-    func findMin()->Int{
+    func findMin(rootNode:Node?)->Node{
         precondition(self.isTreeEmpty() == false, "Tree is empty! please insert some element fist")
         
-        if (self.currentNode?.left == nil){ //Base condition to terminate the recursion
-            let data:Int = (self.currentNode?.data)!;
-            self.resetCurrentNodePointer()
-            return data;
+        if (rootNode?.left == nil){ //Base condition to terminate the recursion
+            return rootNode!;
         }
-        self.currentNode = self.currentNode?.left
-        return findMin();
+        return findMin(rootNode?.left);
     }
     
     //Find the maximum element in tree

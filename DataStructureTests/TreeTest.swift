@@ -131,5 +131,27 @@ class TreeTest: XCTestCase {
         let isStillABST = objTree.isBinarySearchTree(objTree.root)
         XCTAssert(isStillABST, "Expected tree should be binary search tree")
     }
+    
+    func testFindMinimumElementFromBST(){
+        //GIVEN : A tree object with some elements
+        let objTree = Tree(withElements: [15,10,12,8,6,9,11,13,20,17,25,16,18,21,26])
+        
+        //WHEN
+        let min:Node = objTree.findMin(objTree.root)
+        
+        //THEN: expectation is minmimum element should be 6
+        XCTAssert(min.data == 6, "function returning minimum value as \(min), Expecetd value should be 6 ")
+    }
+    
+    func testFindMaximumElementFromBST(){
+        //GIVEN : A tree object with some elements
+        let objTree = Tree(withElements: [15,10,12,8,6,9,11,13,20,17,25,16,18,21,26])
+        
+        //WHEN
+        let max:Int = objTree.findMax()
+        
+        //THEN: expectation is minmimum element should be 6
+        XCTAssert(max == 26, "function returning minimum value as \(max), Expecetd value should be 26 ")
+    }
 
 }
