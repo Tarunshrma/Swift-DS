@@ -85,40 +85,47 @@ extension Tree{
         guard let node = rootNode else{
             return nil
         }
-        //If data in rootNode is less then data to be deleted
-        //Go to left subtree
-        if (data<node.data){
+        
+        if(data<node.data){
+            //if data to be deleted is lesser then root node then try to remove node from left subtree
             node.left = removeNode(node.left, data: data)
         }else if (data>node.data){
-            //If data in rootNode is greater then data to be deleted
-            //Go to right subtree
+            //if data to be deleted is greater then root node then try to remove node from right subtree
             node.right = removeNode(node.right, data: data)
-        }else {
-            var nodeToBeDeleted:Node?
-            //We got the number to be deleted
-            if (node.left == nil && node.right == nil){
-                //If node is leaf node i.e. no child node is there
-                //Simple delete it and return nil
-                node = nil;
-                
+        }else{
+            var aNode:Node?
+            //else if data is equal to root node data delete it
+            if(node.left == nil && node.right == nil){
+                //If node if lead level 
+                //simply delete set the node to nil and return
+                aNode = nil
+                return aNode
             }else if (node.left == nil){
-                //Only one child is nil i.e. left one
+                //else if it has one child i.e. right
+                //set the replace the current node data to right child and try to remove right child
                 node.data = (node.right?.data)!
-                node.right = removeNode(node.right, data: (node.right?.data)!)
+                node.right = removeNode(node.right, data: node.data)
             }else if (node.right == nil){
-                //Only one child is nil i.e. left one
+                //else if it has one child i.e. left
+                //set the replace the current node data to left child and try to remove left child
                 node.data = (node.left?.data)!
-                node.left = removeNode(node.left, data: (node.left?.data)!)
+                node.left = removeNode(node.left, data: node.data)
             }else{
-                //Case when node to be deleted has both left and right child
-                //Fine the minimum from right subtree or maximum from left subtree
-                nodeToBeDeleted = self.findMin(node.right)
-                node.data = (nodeToBeDeleted?.data)!
-                node.right = removeNode(node.right, data: (nodeToBeDeleted?.data)!)
+                //else node has both the childs
+                //either find the max of left subtree or min of right subtree say temp node
+                //replace the data of node to temp data
+                //remove the node from left/right subtree (based on left subtree selected or right) by changing the data to be removed as temp data
+                aNode = findMin(node.right)
+                node.data = (aNode?.data)!
+                node.right = removeNode(node.right, data: (aNode?.data)!)
             }
             
-            return nodeToBeDeleted
+            return node
+            
         }
+        
+        
+        return nil
     }
     
 }
@@ -255,8 +262,9 @@ class Tree{
     }
     
     //Delete node with specified data from tree
-    func remove(data:Int)->Bool{
-        return false
+    func remove(data:Int){
+        precondition(self.isTreeEmpty() == false, "Tree is empty!")
+        self.removeNode(self.root, data: data)
     }
 }
 

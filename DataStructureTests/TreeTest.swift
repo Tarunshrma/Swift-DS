@@ -119,17 +119,20 @@ class TreeTest: XCTestCase {
         XCTAssert(isBST, "Expected tree is binary search tree");
     }
     
-    func testDeletionFromBinarySearchTree(){
+    func testLeafNodeDeletionFromBinarySearchTree(){
         //GIVEN : A tree object with some elements
         let objTree = Tree(withElements: [15,10,12,8,6,9,11,13,20,17,25,16,18,21,26])
+        let numberToBeDeleted = 26 //left data
         
         //WHEN
-        let isRemoved:Bool = objTree.remove(10)
+        objTree.remove(numberToBeDeleted)
         
         //THEN: expectation is passed tree should be binary search tree(as we are creating BST)
-        XCTAssert(isRemoved, "Item is not removed from BST")
         let isStillABST = objTree.isBinarySearchTree(objTree.root)
         XCTAssert(isStillABST, "Expected tree should be binary search tree")
+        
+        let isDataDeleted = objTree.findNumber(numberToBeDeleted)
+        XCTAssert(isDataDeleted, "Number \(isDataDeleted) should been deleted from tree")
     }
     
     func testFindMinimumElementFromBST(){
