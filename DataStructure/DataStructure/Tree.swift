@@ -120,12 +120,12 @@ extension Tree{
                 node.right = removeNode(node.right, data: (aNode?.data)!)
             }
             
-            return node
+            
             
         }
         
         
-        return nil
+       return node
     }
     
 }
