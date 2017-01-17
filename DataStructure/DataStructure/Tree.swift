@@ -32,7 +32,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-let kDefaultGarbageValue:Int = -9999999999999;
+let kDefaultGarbageValue:Int = -99999999;
 
 class Node{
     var data:Int;

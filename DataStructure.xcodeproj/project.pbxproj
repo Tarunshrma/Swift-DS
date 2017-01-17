@@ -20,6 +20,9 @@
 		56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DED78A1D7AB20A0048D272 /* Tree.swift */; };
 		F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87996BE1D82D2C700C26679 /* TreeTest.swift */; };
 		F87996C21D86B1A400C26679 /* Tree+Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87996C11D86B1A400C26679 /* Tree+Traversal.swift */; };
+		F8871A921E2DE10600A24B60 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A911E2DE10600A24B60 /* Node.swift */; };
+		F8871A941E2DE84200A24B60 /* LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A931E2DE84200A24B60 /* LinkList.swift */; };
+		F8871A961E2E093C00A24B60 /* LinkListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A951E2E093C00A24B60 /* LinkListTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		56DED78A1D7AB20A0048D272 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = DataStructure/Tree.swift; sourceTree = "<group>"; };
 		F87996BE1D82D2C700C26679 /* TreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTest.swift; sourceTree = "<group>"; };
 		F87996C11D86B1A400C26679 /* Tree+Traversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tree+Traversal.swift"; path = "DataStructure/Tree/Tree+Traversal.swift"; sourceTree = "<group>"; };
+		F8871A911E2DE10600A24B60 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Node.swift; path = DataStructure/LinkList/Node.swift; sourceTree = "<group>"; };
+		F8871A931E2DE84200A24B60 /* LinkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkList.swift; path = DataStructure/LinkList/LinkList.swift; sourceTree = "<group>"; };
+		F8871A951E2E093C00A24B60 /* LinkListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkListTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 				56D21C771CE76E4C001E364A /* Info.plist */,
 				561C52F81CF3F58F007B02BB /* StackTest.swift */,
 				F87996BE1D82D2C700C26679 /* TreeTest.swift */,
+				F8871A951E2E093C00A24B60 /* LinkListTest.swift */,
 			);
 			path = DataStructureTests;
 			sourceTree = "<group>";
@@ -116,8 +123,9 @@
 		56D21C801CE76E7B001E364A /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				F8871A901E2DE0C900A24B60 /* LinkList */,
+				F8871A8F1E2DDEE100A24B60 /* Stacks */,
 				F87996C01D86B18C00C26679 /* Tree */,
-				56D21C811CE76EBD001E364A /* Stack.swift */,
 			);
 			name = DataStructure;
 			sourceTree = "<group>";
@@ -137,6 +145,23 @@
 				F87996C11D86B1A400C26679 /* Tree+Traversal.swift */,
 			);
 			name = Tree;
+			sourceTree = "<group>";
+		};
+		F8871A8F1E2DDEE100A24B60 /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				56D21C811CE76EBD001E364A /* Stack.swift */,
+			);
+			name = Stacks;
+			sourceTree = "<group>";
+		};
+		F8871A901E2DE0C900A24B60 /* LinkList */ = {
+			isa = PBXGroup;
+			children = (
+				F8871A911E2DE10600A24B60 /* Node.swift */,
+				F8871A931E2DE84200A24B60 /* LinkList.swift */,
+			);
+			name = LinkList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +214,9 @@
 				TargetAttributes = {
 					56D21C5C1CE76E48001E364A = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 8LHDJCDT7T;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					56D21C701CE76E4C001E364A = {
 						CreatedOnToolsVersion = 7.1;
@@ -245,9 +272,11 @@
 				56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */,
 				F87996C21D86B1A400C26679 /* Tree+Traversal.swift in Sources */,
 				56D21C631CE76E49001E364A /* ViewController.swift in Sources */,
+				F8871A941E2DE84200A24B60 /* LinkList.swift in Sources */,
 				56D21C821CE76EBD001E364A /* Stack.swift in Sources */,
 				56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */,
 				56D21C611CE76E49001E364A /* AppDelegate.swift in Sources */,
+				F8871A921E2DE10600A24B60 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +286,7 @@
 			files = (
 				561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */,
 				F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */,
+				F8871A961E2E093C00A24B60 /* LinkListTest.swift in Sources */,
 				561C52FA1CF3F5DC007B02BB /* Stack.swift in Sources */,
 				56D21C761CE76E4C001E364A /* DataStructureTests.swift in Sources */,
 			);
@@ -377,10 +407,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8LHDJCDT7T;
 				INFOPLIST_FILE = DataStructure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanchit.DataStructure;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bpofulfilment.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -389,10 +423,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8LHDJCDT7T;
 				INFOPLIST_FILE = DataStructure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanchit.DataStructure;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bpofulfilment.-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
