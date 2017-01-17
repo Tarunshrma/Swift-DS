@@ -7,7 +7,7 @@
 //
 
 extension Tree{
-    private func printNodeData(node:Node){
+    fileprivate func printNodeData(_ node:Node){
         print(node.data);
     }
 }
@@ -18,7 +18,7 @@ extension Tree{
     //Traverse left subtreez
     //read root
     //traverse right subtree
-    func InOrderTraversal(node:Node?){
+    func InOrderTraversal(_ node:Node?){
         if node == nil{
             return
         }
@@ -29,7 +29,7 @@ extension Tree{
     }
     
     //D-L-R
-    func PreOrderTraversal(node:Node?){
+    func PreOrderTraversal(_ node:Node?){
         
         if node == nil{
             return
@@ -41,7 +41,7 @@ extension Tree{
     }
     
     //L-R-D
-    func PostOrderTraversal(node:Node?){
+    func PostOrderTraversal(_ node:Node?){
         
         if node == nil{
             return
@@ -53,7 +53,7 @@ extension Tree{
     }
     
     //Depth First Traversal
-    func DFSTraversal(node:Node?){
+    func DFSTraversal(_ node:Node?){
         //Psudo Code
         //Traverse a node.
         //keep all of its child in a queue (FIFO)

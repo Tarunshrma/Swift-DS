@@ -189,9 +189,11 @@
 				TargetAttributes = {
 					56D21C5C1CE76E48001E364A = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0810;
 					};
 					56D21C701CE76E4C001E364A = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 56D21C5C1CE76E48001E364A;
 					};
 				};
@@ -379,6 +381,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanchit.DataStructure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -390,6 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanchit.DataStructure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -401,6 +405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanchit.DataStructureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataStructure.app/DataStructure";
 			};
 			name = Debug;
@@ -413,6 +418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanchit.DataStructureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataStructure.app/DataStructure";
 			};
 			name = Release;

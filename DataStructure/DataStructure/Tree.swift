@@ -7,6 +7,30 @@
 //
 
 import Foundation
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 let kDefaultGarbageValue:Int = -9999999999999;
 
@@ -27,17 +51,17 @@ class Node{
 //Private helper methods
 extension Tree{
     //Put the data and reset the current node to root for new insertion traversal
-    private func putData(inNode node:Node!, data:Int){
+    fileprivate func putData(inNode node:Node!, data:Int){
         node.data = data;
         self.resetCurrentNodePointer()
     }
     
     //This method will reset the current pointer to root node for fresh traversal
-    private func resetCurrentNodePointer(){
+    fileprivate func resetCurrentNodePointer(){
         self.currentNode = self.root;
     }
     
-    private func getHeightForRootNode(node:Node?)->Int{
+    fileprivate func getHeightForRootNode(_ node:Node?)->Int{
         
         guard let aNode = node else{
             return -1
@@ -49,14 +73,14 @@ extension Tree{
         return max(leftSubTreeHeight,rightSubTreeHeight) + 1
     }
     
-    private func createBinaryTreeWithElements(elements:[Int]){
+    fileprivate func createBinaryTreeWithElements(_ elements:[Int]){
         for element in elements{
             self.insertData(element)
         }
     }
     
     // MARK: Utility methods for checking is binary search tree
-    private func isBST(node:Node?,minimum min:Int,maximum max:Int)->Bool{
+    fileprivate func isBST(_ node:Node?,minimum min:Int,maximum max:Int)->Bool{
         guard let root  = node else{ //An empty tree is valid binary search tree
             return true
         }
@@ -71,7 +95,7 @@ extension Tree{
         }
     }
     
-    private func isNodeInValidRange(node:Node,minimum min:Int,maximum max:Int)->Bool{
+    fileprivate func isNodeInValidRange(_ node:Node,minimum min:Int,maximum max:Int)->Bool{
         var isNodeInValidRange:Bool = false
         if (node.data>=min && node.data<max){
             isNodeInValidRange = true
@@ -80,7 +104,7 @@ extension Tree{
     }
     
     
-    private func removeNode(rootNode:Node?, data:Int) ->Node?{
+    fileprivate func removeNode(_ rootNode:Node?, data:Int) ->Node?{
         
         guard let node = rootNode else{
             return nil
@@ -134,7 +158,7 @@ class Tree{
     
     var root:Node?;
     
-    private var currentNode:Node?
+    fileprivate var currentNode:Node?
     
     init(){
         self.root = nil;
@@ -157,7 +181,7 @@ class Tree{
         self.createBinaryTreeWithElements(elements!)
     }
     
-    func insertData(_data:Int) -> Node {
+    func insertData(_ _data:Int) -> Node {
         var node:Node? = self.currentNode;
         
         if (self.isTreeEmpty()){
@@ -194,7 +218,7 @@ class Tree{
     }
     
     //Find the minimum element in tree
-    func findMin(rootNode:Node?)->Node{
+    func findMin(_ rootNode:Node?)->Node{
         precondition(self.isTreeEmpty() == false, "Tree is empty! please insert some element fist")
         
         if (rootNode?.left == nil){ //Base condition to terminate the recursion
@@ -217,7 +241,7 @@ class Tree{
     }
     
     //Check a number is in tree or not
-    func findNumber(number:Int)->Bool{
+    func findNumber(_ number:Int)->Bool{
         precondition(self.isTreeEmpty() == false, "Tree is empty! please insert some element fist")
         var numberFound = false;
         
@@ -256,13 +280,13 @@ class Tree{
     }
     
     //Method to check if tree is binary search tree
-    func isBinarySearchTree(node:Node?)->Bool{
+    func isBinarySearchTree(_ node:Node?)->Bool{
         precondition(self.isTreeEmpty() == false, "Tree is empty!")
         return self.isBST(node!, minimum:Int(INT8_MIN) , maximum: Int(INT8_MAX))
     }
     
     //Delete node with specified data from tree
-    func remove(data:Int){
+    func remove(_ data:Int){
         precondition(self.isTreeEmpty() == false, "Tree is empty!")
         self.removeNode(self.root, data: data)
     }

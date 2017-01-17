@@ -8,15 +8,15 @@
 
 import Foundation
 
-enum StackException: ErrorType {
-    case StackOverFlow
-    case StackEmpty
+enum StackException: Error {
+    case stackOverFlow
+    case stackEmpty
 }
 
 class Stack  {
     let defaultCapacity = 100;
-    private var arrItems:NSMutableArray;
-    private var top:NSInteger = -1;
+    fileprivate var arrItems:NSMutableArray;
+    fileprivate var top:NSInteger = -1;
     
     init(){
         self.arrItems = NSMutableArray(capacity:defaultCapacity);
@@ -31,32 +31,32 @@ class Stack  {
     }
     
     
-    func push(object:AnyObject) throws{
+    func push(_ object:AnyObject) throws{
         //Check if stack overflow exception occured else just push the element at top position
         if (top == (defaultCapacity-1)){
-            throw StackException.StackOverFlow
+            throw StackException.stackOverFlow
         }
 
         top += 1;
-        self.arrItems.insertObject(object, atIndex: top);
+        self.arrItems.insert(object, at: top);
     }
     
     func pop()throws ->AnyObject{
         if (isEmpty()){
-           throw StackException.StackEmpty
+           throw StackException.stackEmpty
         }
         
         let obj =  self.arrItems[top]
         top = top - 1;
-        return obj;
+        return obj as AnyObject;
         
     }
     
     func peek()throws ->AnyObject{
         if (isEmpty()){
-            throw StackException.StackEmpty
+            throw StackException.stackEmpty
         }
         
-        return self.arrItems[top]
+        return self.arrItems[top] as AnyObject
     }
 }

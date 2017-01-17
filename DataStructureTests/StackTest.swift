@@ -32,7 +32,7 @@ class StackTest: XCTestCase {
         //When
         do{
            try stack?.push(str)
-        }catch StackException.StackOverFlow{
+        }catch StackException.stackOverFlow{
             XCTAssert(false, "Stack overflow error")
         }catch{
             XCTAssert(false, "Unknown Error")
@@ -42,7 +42,7 @@ class StackTest: XCTestCase {
         var strTopValue:String?
         do{
             try strTopValue = stack?.peek() as? String
-        }catch StackException.StackEmpty{
+        }catch StackException.stackEmpty{
             XCTAssert(false, "Stack Empty error")
         }catch{
             XCTAssert(false, "Unknown Error")
@@ -58,7 +58,7 @@ class StackTest: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

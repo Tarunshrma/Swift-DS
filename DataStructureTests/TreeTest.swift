@@ -11,7 +11,7 @@ import XCTest
 
 //helper methods for test suites
 extension TreeTest{
-    func createBinaryTreeWithElements(elements:[Int]){
+    func createBinaryTreeWithElements(_ elements:[Int]){
         for element in elements{
             self.tree?.insertData(element)
         }
