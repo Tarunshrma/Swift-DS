@@ -31,7 +31,7 @@ class StackTest: XCTestCase {
         
         //When
         do{
-           try stack?.push(str)
+           try stack?.push(str as AnyObject)
         }catch StackException.stackOverFlow{
             XCTAssert(false, "Stack overflow error")
         }catch{

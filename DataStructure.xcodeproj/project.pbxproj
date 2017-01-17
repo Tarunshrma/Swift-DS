@@ -20,9 +20,11 @@
 		56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DED78A1D7AB20A0048D272 /* Tree.swift */; };
 		F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87996BE1D82D2C700C26679 /* TreeTest.swift */; };
 		F87996C21D86B1A400C26679 /* Tree+Traversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87996C11D86B1A400C26679 /* Tree+Traversal.swift */; };
-		F8871A921E2DE10600A24B60 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A911E2DE10600A24B60 /* Node.swift */; };
+		F8871A921E2DE10600A24B60 /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A911E2DE10600A24B60 /* ListNode.swift */; };
 		F8871A941E2DE84200A24B60 /* LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A931E2DE84200A24B60 /* LinkList.swift */; };
 		F8871A961E2E093C00A24B60 /* LinkListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A951E2E093C00A24B60 /* LinkListTest.swift */; };
+		F8871A981E2E3A8000A24B60 /* LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A931E2DE84200A24B60 /* LinkList.swift */; };
+		F8871A991E2E3F4100A24B60 /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A911E2DE10600A24B60 /* ListNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,7 @@
 		56DED78A1D7AB20A0048D272 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = DataStructure/Tree.swift; sourceTree = "<group>"; };
 		F87996BE1D82D2C700C26679 /* TreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTest.swift; sourceTree = "<group>"; };
 		F87996C11D86B1A400C26679 /* Tree+Traversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tree+Traversal.swift"; path = "DataStructure/Tree/Tree+Traversal.swift"; sourceTree = "<group>"; };
-		F8871A911E2DE10600A24B60 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Node.swift; path = DataStructure/LinkList/Node.swift; sourceTree = "<group>"; };
+		F8871A911E2DE10600A24B60 /* ListNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNode.swift; path = DataStructure/LinkList/ListNode.swift; sourceTree = "<group>"; };
 		F8871A931E2DE84200A24B60 /* LinkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkList.swift; path = DataStructure/LinkList/LinkList.swift; sourceTree = "<group>"; };
 		F8871A951E2E093C00A24B60 /* LinkListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkListTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +160,7 @@
 		F8871A901E2DE0C900A24B60 /* LinkList */ = {
 			isa = PBXGroup;
 			children = (
-				F8871A911E2DE10600A24B60 /* Node.swift */,
+				F8871A911E2DE10600A24B60 /* ListNode.swift */,
 				F8871A931E2DE84200A24B60 /* LinkList.swift */,
 			);
 			name = LinkList;
@@ -276,7 +278,7 @@
 				56D21C821CE76EBD001E364A /* Stack.swift in Sources */,
 				56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */,
 				56D21C611CE76E49001E364A /* AppDelegate.swift in Sources */,
-				F8871A921E2DE10600A24B60 /* Node.swift in Sources */,
+				F8871A921E2DE10600A24B60 /* ListNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8871A991E2E3F4100A24B60 /* ListNode.swift in Sources */,
 				561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */,
+				F8871A981E2E3A8000A24B60 /* LinkList.swift in Sources */,
 				F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */,
 				F8871A961E2E093C00A24B60 /* LinkListTest.swift in Sources */,
 				561C52FA1CF3F5DC007B02BB /* Stack.swift in Sources */,
@@ -408,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8LHDJCDT7T;
 				INFOPLIST_FILE = DataStructure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -424,6 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8LHDJCDT7T;
 				INFOPLIST_FILE = DataStructure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
