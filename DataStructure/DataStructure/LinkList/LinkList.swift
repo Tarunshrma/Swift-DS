@@ -29,20 +29,52 @@ extension LinkList{
         return count() == 0 ? true : false
     }
     
+    //get the first item from list
+    public func firstItem()throws->Element
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        return (head?.data)!
+    }
+    
+    //get the last item from list
+    public func lastItem()throws->Element
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        var nodeRef = head;
+        
+        while(nodeRef?.next != nil){
+            nodeRef = nodeRef?.next
+        }
+        
+        return (nodeRef?.data)!
+        
+    }
+    
     fileprivate func insert(node _nodeToBeInserted:ListNode<Element>, atIndex index:Int)
     {
         var indexCounter = 0
         var nodeRef = head;
         
         while(nodeRef?.next != nil){
-            nodeRef = nodeRef?.next
-            indexCounter += 1 //increase the index counter
             
             //index found
             if (indexCounter == index-1)
             {
                 break;
             }
+            
+            nodeRef = nodeRef?.next
+            indexCounter += 1 //increase the index counter
+            
+            
         }
         
         //create new node and link it
