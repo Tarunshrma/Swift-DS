@@ -12,9 +12,12 @@ import XCTest
 
 class LinkListTest: XCTestCase {
     
+    var defaultList:LinkList<String>?
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+         defaultList = LinkList<String>(items: ["Tarun","Sanchit","Eiti"])
     }
     
     override func tearDown() {
@@ -105,6 +108,102 @@ class LinkListTest: XCTestCase {
         //Then
         XCTAssertFalse(isExist,"Item \(stringTobeSearch) should not be present in list")
     }
+    
+    func testInsertItemAtLast()
+    {
+        //GIVEN defaultList with initilized with 3 items.
+        let expectedCountAfterInsertion = (defaultList?.count())! + 1
+        
+        //WHEN
+        do{
+            try defaultList?.inertAsLast(item: "Papa")
+        }catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        
+        //THEN
+        let count = defaultList?.count()
+        XCTAssert(count == expectedCountAfterInsertion, "After insertion total count should be \(expectedCountAfterInsertion)")
+    }
+    
+    func testInsertItemAtLastIndex()
+    {
+        //GIVEN defaultList with initilized with 3 items.
+        let expectedCountAfterInsertion = (defaultList?.count())! + 1
+        let itemToBeInserted = "Papa"
+        
+        //WHEN
+        do{
+            //Try to insert an item at index 3 i.e. as last item
+            try defaultList?.insert(item: itemToBeInserted, atIndex: 3)
+        }catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        
+        //THEN
+        let count = defaultList?.count()
+        XCTAssert(count == expectedCountAfterInsertion, "After insertion total count should be \(expectedCountAfterInsertion)")
+        
+        do{
+            //Try to insert an item at index 3 i.e. as last item
+            let lastItemInList = try defaultList?.lastItem()
+            
+            XCTAssert(itemToBeInserted == lastItemInList, "last item in the list should be \(itemToBeInserted) but it is \(lastItemInList)")
+        }catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        
+
+    }
+    
+    func testInsertItemAtOutOfBoundIndex()
+    {
+        //GIVEN defaultList with initilized with 3 items.
+        let index = 5
+        let itemToBeInserted = "Papa"
+        
+        //WHEN
+        do{
+            //Try to insert an item at index 3 i.e. as last item
+            try defaultList?.insert(item: itemToBeInserted, atIndex: index)
+            XCTFail("Exception should have been raised")
+        }catch
+        {
+            //if excetion occured
+        }
+    }
+    
+    
+    func testInsertItemAtSpecificIndex()
+    {
+        //GIVEN defaultList with initilized with 3 items.
+        let index  = 2
+        let itemToBeInserted = "Papa"
+        let expectedCountAfterInsertion = (defaultList?.count())! + 1
+        
+        
+        //WHEN
+        do{
+            //Try to insert an item at specific index
+            try defaultList?.insert(item: itemToBeInserted, atIndex: index)
+        }catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        
+        //THEN
+        let count = defaultList?.count()
+        XCTAssert(count == expectedCountAfterInsertion, "After insertion total count should be \(expectedCountAfterInsertion)")
+        
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
