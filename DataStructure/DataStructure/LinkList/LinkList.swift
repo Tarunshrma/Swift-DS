@@ -28,10 +28,32 @@ extension LinkList{
     {
         return count() == 0 ? true : false
     }
+    
+    fileprivate func insert(node _nodeToBeInserted:ListNode<Element>, atIndex index:Int)
+    {
+        var indexCounter = 0
+        var nodeRef = head;
+        
+        while(nodeRef?.next != nil){
+            nodeRef = nodeRef?.next
+            indexCounter += 1 //increase the index counter
+            
+            //index found
+            if (indexCounter == index-1)
+            {
+                break;
+            }
+        }
+        
+        //create new node and link it
+        _nodeToBeInserted.next = nodeRef?.next
+        nodeRef?.next = _nodeToBeInserted
+    }
 }
 
 enum ListException: Error {
     case Empty
+    case IndexOutOfBound
 }
 
 public class LinkList<Element:Comparable>
@@ -66,6 +88,7 @@ public class LinkList<Element:Comparable>
         head = node
     }
     
+    //Check if item is exist
     public func itemExist(item _item:Element)throws ->Bool
     {
         //If link list is empty then simply throw the empty list exception
@@ -90,5 +113,58 @@ public class LinkList<Element:Comparable>
         
         return isExist
     
+    }
+    
+    //insert the item at a specific index in list
+    public func insert(item _item:Element, atIndex index:Int)throws
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        let count = self.count()
+        if(index>count)
+        {
+            //throw out of bound exception
+            throw ListException.IndexOutOfBound
+        }
+        
+        if (index == count)
+        {
+            //insert as last item
+            do
+            {
+                try self.inertAsLast(item: _item)
+            }
+        }else if (index == 0)
+        {
+            //insert as first item in list
+            self.append(item: _item)
+        }else{
+            //Insert in between the list
+            let nodeToBeInserted = ListNode(data: _item)
+            self.insert(node: nodeToBeInserted, atIndex: index)
+        }
+    
+    }
+    
+    //insert item at last
+    public func inertAsLast(item _item:Element)throws
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        var nodeRef = head;
+        
+        while(nodeRef?.next != nil){
+            nodeRef = nodeRef?.next
+        }
+        
+        //at end of loop we will get the last node in the list
+        let nodeToBeInserted = ListNode(data: _item)
+        nodeRef?.next = nodeToBeInserted
     }
 }
