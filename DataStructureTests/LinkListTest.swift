@@ -17,7 +17,20 @@ class LinkListTest: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-         defaultList = LinkList<String>(items: ["Tarun","Sanchit","Eiti"])
+        
+        //The list will be created in reverse order Eiti->Sanchit->Tarun
+        defaultList = LinkList<String>(items: ["A"])
+        
+        do{
+            try defaultList?.insert(item:"B")
+            try defaultList?.insert(item:"C")
+            try defaultList?.insert(item:"D")
+            try defaultList?.insert(item:"E")
+        }catch
+        {
+            print("Error in list creation \(error)")
+        }
+        
     }
     
     override func tearDown() {
@@ -116,7 +129,7 @@ class LinkListTest: XCTestCase {
         
         //WHEN
         do{
-            try defaultList?.inertAsLast(item: "Papa")
+            try defaultList?.insert(item: "Papa")
         }catch
         {
             XCTFail("Exception raised \(error.localizedDescription)")
@@ -137,7 +150,7 @@ class LinkListTest: XCTestCase {
         //WHEN
         do{
             //Try to insert an item at index 3 i.e. as last item
-            try defaultList?.insert(item: itemToBeInserted, atIndex: 3)
+            try defaultList?.insert(item: itemToBeInserted)
         }catch
         {
             XCTFail("Exception raised \(error.localizedDescription)")
@@ -165,7 +178,7 @@ class LinkListTest: XCTestCase {
     func testInsertItemAtOutOfBoundIndex()
     {
         //GIVEN defaultList with initilized with 3 items.
-        let index = 5
+        let index = 6
         let itemToBeInserted = "Papa"
         
         //WHEN
@@ -204,6 +217,65 @@ class LinkListTest: XCTestCase {
         
     }
     
+    func testRemoveFirstItem()
+    {
+        //GIVEN
+        let index = 0 //remove item at first indes
+        let expectedCountAfterDeleation = (defaultList?.count())! - 1
+        
+        //WHEN
+        do{
+            try defaultList?.removeItem(atIndex: index)
+        }
+        catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        //THEN
+        let count = defaultList?.count()
+        XCTAssert(count == expectedCountAfterDeleation, "After deletion total count should be \(expectedCountAfterDeleation)")
+    }
+
+    func testRemoveItemWithIndex()
+    {
+        //GIVEN
+        let index = 3 //remove item at first indes
+        let expectedCountAfterDeleation = (defaultList?.count())! - 1
+        
+        //WHEN
+        do{
+            try defaultList?.removeItem(atIndex: index)
+        }
+        catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        //THEN
+        let count = defaultList?.count()
+        XCTAssert(count == expectedCountAfterDeleation, "After deletion total count should be \(expectedCountAfterDeleation)")
+    }
+    
+    func testGetItemAtIndex()
+    {
+        //GIVEN
+        let index = 3
+        let expectedItem = "D"
+        var item:String?
+        
+        //WHEN
+        do{
+            item = try defaultList?.item(atIndex: index)
+        }
+        catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        //THEN
+        XCTAssert(item == expectedItem, "item at index \(index) should be \(item)")
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
