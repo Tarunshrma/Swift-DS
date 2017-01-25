@@ -277,6 +277,19 @@ class LinkListTest: XCTestCase {
         XCTAssert(item == expectedItem, "item at index \(index) should be \(item)")
     }
     
+    func testReverseList()
+    {
+        do{
+            try defaultList?.reverseList()
+        }
+        catch
+        {
+            XCTFail("Exception raised \(error.localizedDescription)")
+            //if excetion occured
+        }
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
