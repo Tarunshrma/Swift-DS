@@ -81,6 +81,39 @@ extension LinkList{
         _nodeToBeInserted.next = nodeRef?.next
         nodeRef?.next = _nodeToBeInserted
     }
+    
+    //get an item from list based on index value
+    fileprivate func item(atIndex _index:Int)throws ->ListNode<Element>
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        let count = self.count()
+        if(_index>count)
+        {
+            //throw out of bound exception
+            throw ListException.IndexOutOfBound
+        }
+        
+        var nodeRef = head
+        var counter = 0
+        
+        while(nodeRef?.next != nil){
+            
+            if(counter == _index)
+            {
+                break;
+            }
+            
+            nodeRef = nodeRef?.next
+            counter += 1
+        }
+        
+        return nodeRef!;
+    }
+
 }
 
 enum ListException: Error {
@@ -167,7 +200,7 @@ public class LinkList<Element:Comparable>
             //insert as last item
             do
             {
-                try self.inertAsLast(item: _item)
+                try self.insert(item: _item)
             }
         }else if (index == 0)
         {
@@ -182,7 +215,7 @@ public class LinkList<Element:Comparable>
     }
     
     //insert item at last
-    public func inertAsLast(item _item:Element)throws
+    public func insert(item _item:Element)throws
     {
         //If link list is empty then simply throw the empty list exception
         if (head == nil) {
@@ -199,4 +232,64 @@ public class LinkList<Element:Comparable>
         let nodeToBeInserted = ListNode(data: _item)
         nodeRef?.next = nodeToBeInserted
     }
+    
+    //get an item from list based on index value
+    public func item(atIndex _index:Int)throws ->Element
+    {
+        do{
+            let node:ListNode<Element>  = try item(atIndex: _index)
+            return node.data
+        }catch let exexption
+        {
+            throw exexption
+        }
+    }
+    
+    public func removeItem(atIndex _index:Int)throws
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        var listItemToRemove:ListNode<Element>?
+        
+        //If item to be removed a head item
+        if(_index == 0)
+        {
+            listItemToRemove = head!;
+            head = head?.next
+        }else{
+            //Traverse till index-1 node and adjust the link
+            var nodeRef = head
+            var counter = 0
+            
+            while(nodeRef?.next != nil){
+                
+                if(counter == _index-1)
+                {
+                    listItemToRemove = nodeRef?.next
+                    break;
+                }
+                
+                nodeRef = nodeRef?.next
+                counter += 1
+            }
+            
+            if (listItemToRemove == nil)
+            {
+                throw ListException.IndexOutOfBound
+            }
+            
+            if (nodeRef != nil)
+            {
+                nodeRef?.next = listItemToRemove?.next
+            }
+        }
+        
+        
+        
+        listItemToRemove = nil
+    }
+    
 }
