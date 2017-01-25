@@ -292,4 +292,26 @@ public class LinkList<Element:Comparable>
         listItemToRemove = nil
     }
     
+    
+    func reverseList()throws
+    {
+        //If link list is empty then simply throw the empty list exception
+        if (head == nil) {
+            throw ListException.Empty
+        }
+        
+        var current,previous,next:ListNode<Element>?
+        
+        current = head
+       // next = current?.next
+        
+        while(current != nil){
+            head = current
+            next = current?.next
+            current?.next = previous
+            previous = current
+            current = next
+        }
+        
+    }
 }
