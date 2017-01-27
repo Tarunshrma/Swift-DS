@@ -290,6 +290,12 @@ class LinkListTest: XCTestCase {
         
     }
     
+    func testReverseListUsingRecusrion()
+    {
+        defaultList?.reverseListUsingRecursion()
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

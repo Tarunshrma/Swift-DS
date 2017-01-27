@@ -314,4 +314,28 @@ public class LinkList<Element:Comparable>
         }
         
     }
+    
+    func reverseListUsingRecursion()
+    {
+        reverseList(listNode: head)
+    }
+    
+    private func reverseList(listNode node:ListNode<Element>?)
+    {
+        if(node == nil){ //base condition to terminate the recursion
+            
+            return
+        }
+        
+        reverseList(listNode: node?.next)
+        
+        if(node?.next == nil)
+        {
+          head = node
+        }else{
+            let tempNode = node?.next
+            tempNode?.next = node;
+            node?.next = nil
+        }
+    }
 }
