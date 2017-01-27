@@ -113,6 +113,26 @@ extension LinkList{
         
         return nodeRef!;
     }
+    
+    fileprivate func reverseList(listNode node:ListNode<Element>?)
+    {
+        if(node == nil){ //base condition to terminate the recursion
+            
+            return
+        }
+        
+        reverseList(listNode: node?.next)
+        
+        if(node?.next == nil)
+        {
+            head = node
+        }else{
+            let tempNode = node?.next
+            tempNode?.next = node;
+            node?.next = nil
+        }
+    }
+
 
 }
 
@@ -320,22 +340,4 @@ public class LinkList<Element:Comparable>
         reverseList(listNode: head)
     }
     
-    private func reverseList(listNode node:ListNode<Element>?)
-    {
-        if(node == nil){ //base condition to terminate the recursion
-            
-            return
-        }
-        
-        reverseList(listNode: node?.next)
-        
-        if(node?.next == nil)
-        {
-          head = node
-        }else{
-            let tempNode = node?.next
-            tempNode?.next = node;
-            node?.next = nil
-        }
-    }
 }
