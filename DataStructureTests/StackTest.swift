@@ -50,7 +50,60 @@ class StackTest: XCTestCase {
         
         XCTAssert(strTopValue==str, "Top Value is not matching inserterd value")
     }
-
+    
+    // MARK: Stack implemtation with generic and link list
+    func testPushOnStackList(){
+        //Given
+        let objStack:StackList<Int> = StackList<Int>()
+        
+        //When
+        objStack.push(item: 6)
+        objStack.push(item: 4)
+        objStack.push(item: 8)
+        
+        //Then
+        var topValue:Int = -999 //some garbage value
+        do{
+            try topValue = objStack.peek()
+        }catch StackException.stackEmpty{
+            XCTAssert(false, "Stack Empty error")
+        }catch{
+            XCTAssert(false, "Unknown Error")
+        }
+        
+        XCTAssert(topValue==8, "Top Value is not matching inserterd value")
+    }
+    
+    func testPopOnStackList(){
+        //GIVEN
+        let objStack:StackList<Int> = StackList<Int>()
+        objStack.push(item: 6)
+        objStack.push(item: 4)
+        objStack.push(item: 8)
+        
+        //Then
+        do{
+            try objStack.pop()
+            try objStack.pop()
+        }catch StackException.stackEmpty{
+            XCTAssert(false, "Stack Empty error")
+        }catch{
+            XCTAssert(false, "Unknown Error")
+        }
+        
+        //THEN
+        var topValue:Int = -999 //some garbage value
+        do{
+            try topValue = objStack.peek()
+        }catch StackException.stackEmpty{
+            XCTAssert(false, "Stack Empty error")
+        }catch{
+            XCTAssert(false, "Unknown Error")
+        }
+        
+        XCTAssert(topValue==6, "Top Value is not matching inserterd value")
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
