@@ -20,9 +20,26 @@ class StackImplTest: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBalancedParanthesisWithValidExpression() {
+        //GIVEN
+        let givenExpression = "(a+[c+d]-{g-a(x+y)})"
+        
+        //WHEN
+        let balanched = StackImplementations.checkBalancedParanthesis(forExpression: givenExpression)
+        
+        //THEN
+        XCTAssert(balanched, "\(givenExpression) should be a valid expression")
+    }
+    
+    func testBalancedParanthesisWithInValidExpression() {
+        //GIVEN
+        let givenExpression = "(a+[c+d-{g-a(x+y)})"
+        
+        //WHEN
+        let balanched = StackImplementations.checkBalancedParanthesis(forExpression: givenExpression)
+        
+        //THEN
+        XCTAssertFalse(balanched, "\(givenExpression) should be a invalid expression")
     }
     
     func testPerformanceExample() {
