@@ -11,7 +11,7 @@ import Foundation
 //Helper methods
 extension StackList
 {
-    fileprivate func isEmpty()->Bool{
+    public func isEmpty()->Bool{
         return (top == nil ? true:false)
     }
 }

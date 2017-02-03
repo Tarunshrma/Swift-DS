@@ -16,7 +16,6 @@
 		56D21C6B1CE76E4A001E364A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D21C691CE76E4A001E364A /* LaunchScreen.storyboard */; };
 		56D21C761CE76E4C001E364A /* DataStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C751CE76E4C001E364A /* DataStructureTests.swift */; };
 		56D21C821CE76EBD001E364A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C811CE76EBD001E364A /* Stack.swift */; };
-		56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D21C841CE77BF5001E364A /* StackImpl.swift */; };
 		56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DED78A1D7AB20A0048D272 /* Tree.swift */; };
 		F821A1441E40CCEE00ADC260 /* StackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F821A1431E40CCEE00ADC260 /* StackList.swift */; };
 		F821A1451E40D3C800ADC260 /* StackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F821A1431E40CCEE00ADC260 /* StackList.swift */; };
@@ -27,6 +26,9 @@
 		F8871A961E2E093C00A24B60 /* LinkListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A951E2E093C00A24B60 /* LinkListTest.swift */; };
 		F8871A981E2E3A8000A24B60 /* LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A931E2DE84200A24B60 /* LinkList.swift */; };
 		F8871A991E2E3F4100A24B60 /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8871A911E2DE10600A24B60 /* ListNode.swift */; };
+		F8CCBA5F1E444AA7002E3361 /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */; };
+		F8CCBA601E444F04002E3361 /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */; };
+		F8CCBA621E444F86002E3361 /* StackImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA611E444F86002E3361 /* StackImplTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,6 @@
 		56D21C751CE76E4C001E364A /* DataStructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructureTests.swift; sourceTree = "<group>"; };
 		56D21C771CE76E4C001E364A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56D21C811CE76EBD001E364A /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = DataStructure/Stack.swift; sourceTree = "<group>"; };
-		56D21C841CE77BF5001E364A /* StackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackImpl.swift; path = Implementation/StackImpl.swift; sourceTree = "<group>"; };
 		56DED78A1D7AB20A0048D272 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = DataStructure/Tree.swift; sourceTree = "<group>"; };
 		F821A1431E40CCEE00ADC260 /* StackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackList.swift; path = DataStructure/Stack/StackList.swift; sourceTree = "<group>"; };
 		F87996BE1D82D2C700C26679 /* TreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTest.swift; sourceTree = "<group>"; };
@@ -60,6 +61,8 @@
 		F8871A911E2DE10600A24B60 /* ListNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListNode.swift; path = DataStructure/LinkList/ListNode.swift; sourceTree = "<group>"; };
 		F8871A931E2DE84200A24B60 /* LinkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkList.swift; path = DataStructure/LinkList/LinkList.swift; sourceTree = "<group>"; };
 		F8871A951E2E093C00A24B60 /* LinkListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkListTest.swift; sourceTree = "<group>"; };
+		F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackImpl.swift; path = DataStructure/Stack/StackImpl.swift; sourceTree = "<group>"; };
+		F8CCBA611E444F86002E3361 /* StackImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackImplTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 				561C52F81CF3F58F007B02BB /* StackTest.swift */,
 				F87996BE1D82D2C700C26679 /* TreeTest.swift */,
 				F8871A951E2E093C00A24B60 /* LinkListTest.swift */,
+				F8CCBA611E444F86002E3361 /* StackImplTest.swift */,
 			);
 			path = DataStructureTests;
 			sourceTree = "<group>";
@@ -138,7 +142,7 @@
 		56D21C831CE77BCE001E364A /* DSImplementation */ = {
 			isa = PBXGroup;
 			children = (
-				56D21C841CE77BF5001E364A /* StackImpl.swift */,
+				F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */,
 			);
 			name = DSImplementation;
 			sourceTree = "<group>";
@@ -281,7 +285,7 @@
 				56D21C631CE76E49001E364A /* ViewController.swift in Sources */,
 				F8871A941E2DE84200A24B60 /* LinkList.swift in Sources */,
 				56D21C821CE76EBD001E364A /* Stack.swift in Sources */,
-				56D21C851CE77BF5001E364A /* StackImpl.swift in Sources */,
+				F8CCBA5F1E444AA7002E3361 /* StackImpl.swift in Sources */,
 				56D21C611CE76E49001E364A /* AppDelegate.swift in Sources */,
 				F8871A921E2DE10600A24B60 /* ListNode.swift in Sources */,
 			);
@@ -293,6 +297,8 @@
 			files = (
 				F8871A991E2E3F4100A24B60 /* ListNode.swift in Sources */,
 				561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */,
+				F8CCBA621E444F86002E3361 /* StackImplTest.swift in Sources */,
+				F8CCBA601E444F04002E3361 /* StackImpl.swift in Sources */,
 				F8871A981E2E3A8000A24B60 /* LinkList.swift in Sources */,
 				F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */,
 				F821A1451E40D3C800ADC260 /* StackList.swift in Sources */,
