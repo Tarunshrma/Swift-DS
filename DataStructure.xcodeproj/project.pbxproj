@@ -29,6 +29,8 @@
 		F8CCBA5F1E444AA7002E3361 /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */; };
 		F8CCBA601E444F04002E3361 /* StackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */; };
 		F8CCBA621E444F86002E3361 /* StackImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA611E444F86002E3361 /* StackImplTest.swift */; };
+		F8D814061E6D9CC8008C8B59 /* QueueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D814051E6D9CC8008C8B59 /* QueueProtocol.swift */; };
+		F8D814081E6D9E69008C8B59 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D814071E6D9E69008C8B59 /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		F8871A951E2E093C00A24B60 /* LinkListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkListTest.swift; sourceTree = "<group>"; };
 		F8CCBA5E1E444AA7002E3361 /* StackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackImpl.swift; path = DataStructure/Stack/StackImpl.swift; sourceTree = "<group>"; };
 		F8CCBA611E444F86002E3361 /* StackImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackImplTest.swift; sourceTree = "<group>"; };
+		F8D814051E6D9CC8008C8B59 /* QueueProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueueProtocol.swift; path = DataStructure/Queue/QueueProtocol.swift; sourceTree = "<group>"; };
+		F8D814071E6D9E69008C8B59 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = DataStructure/Queue/Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 		56D21C801CE76E7B001E364A /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				F8D814041E6D9C65008C8B59 /* Queue */,
 				F8871A901E2DE0C900A24B60 /* LinkList */,
 				F8871A8F1E2DDEE100A24B60 /* Stack */,
 				F87996C01D86B18C00C26679 /* Tree */,
@@ -172,6 +177,15 @@
 				F8871A931E2DE84200A24B60 /* LinkList.swift */,
 			);
 			name = LinkList;
+			sourceTree = "<group>";
+		};
+		F8D814041E6D9C65008C8B59 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				F8D814051E6D9CC8008C8B59 /* QueueProtocol.swift */,
+				F8D814071E6D9E69008C8B59 /* Queue.swift */,
+			);
+			name = Queue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,12 +296,14 @@
 				56DED78B1D7AB20A0048D272 /* Tree.swift in Sources */,
 				F821A1441E40CCEE00ADC260 /* StackList.swift in Sources */,
 				F87996C21D86B1A400C26679 /* Tree+Traversal.swift in Sources */,
+				F8D814081E6D9E69008C8B59 /* Queue.swift in Sources */,
 				56D21C631CE76E49001E364A /* ViewController.swift in Sources */,
 				F8871A941E2DE84200A24B60 /* LinkList.swift in Sources */,
 				56D21C821CE76EBD001E364A /* Stack.swift in Sources */,
 				F8CCBA5F1E444AA7002E3361 /* StackImpl.swift in Sources */,
 				56D21C611CE76E49001E364A /* AppDelegate.swift in Sources */,
 				F8871A921E2DE10600A24B60 /* ListNode.swift in Sources */,
+				F8D814061E6D9CC8008C8B59 /* QueueProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
