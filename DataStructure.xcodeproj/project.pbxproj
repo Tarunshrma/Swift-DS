@@ -31,6 +31,9 @@
 		F8CCBA621E444F86002E3361 /* StackImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CCBA611E444F86002E3361 /* StackImplTest.swift */; };
 		F8D814061E6D9CC8008C8B59 /* QueueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D814051E6D9CC8008C8B59 /* QueueProtocol.swift */; };
 		F8D814081E6D9E69008C8B59 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D814071E6D9E69008C8B59 /* Queue.swift */; };
+		F8D8140C1E6DBC45008C8B59 /* QueueTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8140B1E6DBC45008C8B59 /* QueueTest.swift */; };
+		F8D8140D1E6DBC7C008C8B59 /* QueueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D814051E6D9CC8008C8B59 /* QueueProtocol.swift */; };
+		F8D8140E1E6DBC7C008C8B59 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D814071E6D9E69008C8B59 /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,7 @@
 		F8CCBA611E444F86002E3361 /* StackImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackImplTest.swift; sourceTree = "<group>"; };
 		F8D814051E6D9CC8008C8B59 /* QueueProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QueueProtocol.swift; path = DataStructure/Queue/QueueProtocol.swift; sourceTree = "<group>"; };
 		F8D814071E6D9E69008C8B59 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = DataStructure/Queue/Queue.swift; sourceTree = "<group>"; };
+		F8D8140B1E6DBC45008C8B59 /* QueueTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 				F87996BE1D82D2C700C26679 /* TreeTest.swift */,
 				F8871A951E2E093C00A24B60 /* LinkListTest.swift */,
 				F8CCBA611E444F86002E3361 /* StackImplTest.swift */,
+				F8D8140B1E6DBC45008C8B59 /* QueueTest.swift */,
 			);
 			path = DataStructureTests;
 			sourceTree = "<group>";
@@ -312,13 +317,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8871A991E2E3F4100A24B60 /* ListNode.swift in Sources */,
+				F8D8140D1E6DBC7C008C8B59 /* QueueProtocol.swift in Sources */,
 				561C52F91CF3F58F007B02BB /* StackTest.swift in Sources */,
 				F8CCBA621E444F86002E3361 /* StackImplTest.swift in Sources */,
+				F8D8140E1E6DBC7C008C8B59 /* Queue.swift in Sources */,
 				F8CCBA601E444F04002E3361 /* StackImpl.swift in Sources */,
 				F8871A981E2E3A8000A24B60 /* LinkList.swift in Sources */,
 				F87996BF1D82D2C700C26679 /* TreeTest.swift in Sources */,
 				F821A1451E40D3C800ADC260 /* StackList.swift in Sources */,
 				F8871A961E2E093C00A24B60 /* LinkListTest.swift in Sources */,
+				F8D8140C1E6DBC45008C8B59 /* QueueTest.swift in Sources */,
 				561C52FA1CF3F5DC007B02BB /* Stack.swift in Sources */,
 				56D21C761CE76E4C001E364A /* DataStructureTests.swift in Sources */,
 			);
