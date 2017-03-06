@@ -12,25 +12,27 @@ private let DEFAULT_QUEUE_CAPACITY:Int = 10
 private let DEFAULT_QUEUE_INDEX:Int = -1
 
 // MARK: Custom exception
-enum QueueException: Error {
+public enum QueueException: Error {
     case queueFull
     case queueEmpty
 }
 
 /// Queue data structure implementation using Array
-class Queue<Element> : QueueProtocol
+public class Queue<Element> : QueueProtocol
 {
     
     // MARK: Private member variables
     private var front:Int
     private var rear:Int
     private var _queue:[Element]
+    private let maxSize:Int
     
     // MARK: Object lifecycle methods
     init(withSize size:Int = DEFAULT_QUEUE_CAPACITY) {
         _queue = [Element?](repeating: nil, count:size) as! [Element]
         front = DEFAULT_QUEUE_INDEX
         rear = DEFAULT_QUEUE_INDEX
+        maxSize = size
     }
     
     deinit {
@@ -43,14 +45,20 @@ class Queue<Element> : QueueProtocol
      
      - parameter _item: item to be added in queue.
      */
-    public func enqueue(item _item:Element)
+    public func enqueue(item _item:Element)throws
     {
         if isEmpty(){
             front = 0
             rear = 0
         }else{
           //If next of rear is front then throw queue full exception, else move forward
-          rear += 1
+          let next = maxSize % (rear + 1)
+          
+            if (next == front){
+                throw QueueException.queueFull
+            }
+            
+          rear = next
         }
         _queue[rear] = _item
     }
@@ -69,11 +77,13 @@ class Queue<Element> : QueueProtocol
         }
         
         let element =  _queue[front]
-        front += 1
         
         if (front == rear)
         {
             makeQueueEmpty()
+        }else
+        {
+            front = maxSize % (front + 1)
         }
         
         return element
