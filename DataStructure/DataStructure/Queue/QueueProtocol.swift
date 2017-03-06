@@ -7,3 +7,10 @@
 //
 
 import Foundation
+protocol QueueProtocol {
+    associatedtype Element
+    
+    func enqueue(item _item:Element)
+    func dequeue()throws-> Element
+    func isEmpty()->Bool
+}
