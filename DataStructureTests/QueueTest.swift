@@ -17,24 +17,44 @@ class QueueTest: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        queue = Queue<String>()
+        queue = Queue<String>(withSize: 5)
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    //test case to check if method is empty
+    func testEmptyQueue()
+    {
+        //Given
+        //test when queue is empty, isEmpty should reurn true
+        
+        //When
+        let empty  = queue!.isEmpty()
+        
+        //Then
+        XCTAssert(empty, "Queue should be empty!")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    //test case to check if method is empty
+    func testNonEmptyQueue()
+    {
+        //Given
+        do{
+            try queue?.enqueue(item: "Tarun")
+            try queue?.enqueue(item: "Sanchit")
+        }catch
+        {
+            XCTFail("Exception raised in insertion of queue")
         }
+        
+        //When
+        let empty  = queue!.isEmpty()
+        
+        //Then
+        XCTAssertFalse(empty, "Queue should not be empty!")
     }
     
 }
