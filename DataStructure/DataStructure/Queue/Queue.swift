@@ -24,15 +24,19 @@ public class Queue<Element> : QueueProtocol
     // MARK: Private member variables
     private var front:Int
     private var rear:Int
-    private var _queue:[Element]
-    private let maxSize:Int
+    private var _queue:[Element?]
+    private let maxSize:Int  
     
     // MARK: Object lifecycle methods
-    init(withSize size:Int = DEFAULT_QUEUE_CAPACITY) {
-        _queue = [Element?](repeating: nil, count:size) as! [Element]
+    init(withSize size:Int) {
+        _queue = [Element?](repeating: nil, count:size)
         front = DEFAULT_QUEUE_INDEX
         rear = DEFAULT_QUEUE_INDEX
         maxSize = size
+    }
+    
+    convenience init() {
+        self.init(withSize: DEFAULT_QUEUE_CAPACITY)
     }
     
     deinit {
@@ -52,7 +56,7 @@ public class Queue<Element> : QueueProtocol
             rear = 0
         }else{
           //If next of rear is front then throw queue full exception, else move forward
-          let next = maxSize % (rear + 1)
+          let next = (maxSize+(rear + 1)) %  maxSize
           
             if (next == front){
                 throw QueueException.queueFull
@@ -83,10 +87,10 @@ public class Queue<Element> : QueueProtocol
             makeQueueEmpty()
         }else
         {
-            front = maxSize % (front + 1)
+            front = (maxSize + (front + 1)) % maxSize
         }
         
-        return element
+        return element!
     }
     
     /**
